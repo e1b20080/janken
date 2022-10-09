@@ -12,10 +12,19 @@
     HI [[${name}]]
   </div>
   <p>
-    <a href="/jankengame">ぐー</a>
-    <a href="/jankengame">ちょき</a>
-    <a href="/jankengame">ぱー</a>
+    <a href="/jankengame?hand=gu">ぐー</a>
+    <a href="/jankengame?hand=tyoki">ちょき</a>
+    <a href="/jankengame?hand=pa">ぱー</a>
   </p>
+  <div th:if="${zibun}">
+    あなたの手 [[${zibun}]]
+  </div>
+  <div th:if="${aite}">
+    あいての手 [[${aite}]]
+  </div>
+  <div th:if="${syouhai}">
+    結果 [[${syouhai}]]
+  </div>
 </body>
 
 </html>
