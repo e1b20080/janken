@@ -26,4 +26,22 @@ public class JankenController {
     return "janken.html";
   }
 
+  @GetMapping("/jankengame")
+  public String jankengame(@RequestParam String hand, ModelMap model) {
+    String a = "gu", b = "tyoki", c = "pa";
+    String w = "win", d = "draw", l = "lose";
+    model.addAttribute("zibun", hand);
+    model.addAttribute("aite", a);
+    if (hand.equals(a)) {
+      model.addAttribute("syouhai", d);
+    }
+    if (hand.equals(b)) {
+      model.addAttribute("syouhai", l);
+    }
+    if (hand.equals(c)) {
+      model.addAttribute("syouhai", w);
+    }
+    return "janken.html";
+  }
+
 }
