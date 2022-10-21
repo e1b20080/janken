@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,17 +33,18 @@ public class JankenController {
     String loginUser = prin.getName();
     this.entry.addUser(loginUser);
     model.addAttribute("entry", this.entry);
+    model.addAttribute("name", prin.getName());
 
     return "janken.html";
   }
 
-  /*
-   * @PostMapping("/janken")
-   * public String janken(@RequestParam String namae, ModelMap model) {
-   * model.addAttribute("name", namae);
-   * return "janken.html";
-   * }
-   */
+
+  @PostMapping("/janken")
+  public String janken(@RequestParam String namae, ModelMap model) {
+  model.addAttribute("name", namae);
+  return "janken.html";
+  }
+
 
   @GetMapping("/jankengame")
   public String jankengame(@RequestParam String hand, ModelMap model) {
