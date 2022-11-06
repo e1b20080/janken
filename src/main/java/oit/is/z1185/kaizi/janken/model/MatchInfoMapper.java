@@ -16,4 +16,7 @@ public interface MatchInfoMapper {
   @Insert("INSERT INTO matchInfo (user1, user2, user1Hand, isActive) VALUES (#{user1}, #{user2}, #{user1Hand}, #{isActive})")
   void insertMatchInfo(int user1, int user2, String user1Hand, boolean isActive);
 
+  @Select("SELECT * from MatchInfo where isActive = true;")
+  ArrayList<MatchInfo> selectMatchInfoByTrue();
+
 }
