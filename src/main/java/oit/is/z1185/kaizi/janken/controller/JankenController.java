@@ -15,7 +15,7 @@ import oit.is.z1185.kaizi.janken.model.MatchMapper;
 import oit.is.z1185.kaizi.janken.model.User;
 import oit.is.z1185.kaizi.janken.model.Match;
 import oit.is.z1185.kaizi.janken.model.UserMapper;
-//import oit.is.z1185.kaizi.janken.model.MatchInfo;
+import oit.is.z1185.kaizi.janken.model.MatchInfo;
 import oit.is.z1185.kaizi.janken.model.MatchInfoMapper;
 
 @Controller
@@ -37,8 +37,10 @@ public class JankenController {
     model.addAttribute("name", loginUser);
     ArrayList<User> users = user.selectAllUserName();
     ArrayList<Match> matches = match.selectAllmatches();
+    ArrayList<MatchInfo> matchInfo = matchinfo.selectMatchInfoByTrue();
     model.addAttribute("users", users);
     model.addAttribute("matches", matches);
+    model.addAttribute("matchInfo", matchInfo);
     return "janken.html";
   }
 
