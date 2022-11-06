@@ -43,6 +43,7 @@ public class JankenAuthConfiguration {
         .password("$2y$10$ngxCDmuVK1TaGchiYQfJ1OAKkd64IH6skGsNw1sLabrTICOHPxC0e")
         .roles("ADMIN")
         .build();
+    //pass isdev
     UserDetails user3 = users
         .username("ほんだ")
         .password("$2y$10$Wr37fBf1pUVzwZy9JeJBp.C0auhrSU5Metlmb9A9DLDUozdddd6YG")
