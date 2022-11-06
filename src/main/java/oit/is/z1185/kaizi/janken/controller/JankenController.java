@@ -57,29 +57,32 @@ public class JankenController {
   }
 
   // @GetMapping("/fight")
-  // public String fight(Principal prin, @RequestParam Integer id, @RequestParam Integer hand, ModelMap model) {
-  //   Janken janken = new Janken(hand);
-  //   User match_user = user.selectById(id);
-  //   User loginUser = user.selectByName(prin.getName());
+  // public String fight(Principal prin, @RequestParam Integer id, @RequestParam
+  // Integer hand, ModelMap model) {
+  // Janken janken = new Janken(hand);
+  // User match_user = user.selectById(id);
+  // User loginUser = user.selectByName(prin.getName());
 
-  //   Match match_data = new Match(loginUser.getId(), match_user.getId(), janken.getMyhand(), janken.getCpuhand());
-  //   match.insertMatches(match_data);
+  // Match match_data = new Match(loginUser.getId(), match_user.getId(),
+  // janken.getMyhand(), janken.getCpuhand());
+  // match.insertMatches(match_data);
 
-  //   model.addAttribute("user_id", id);
-  //   model.addAttribute("user_name", prin.getName());
-  //   model.addAttribute("match_user", match_user);
+  // model.addAttribute("user_id", id);
+  // model.addAttribute("user_name", prin.getName());
+  // model.addAttribute("match_user", match_user);
 
-  //   model.addAttribute("my_hand", janken.getMyhand());
-  //   model.addAttribute("cpu_hand", janken.getCpuhand());
-  //   model.addAttribute("result", janken.Result());
+  // model.addAttribute("my_hand", janken.getMyhand());
+  // model.addAttribute("cpu_hand", janken.getCpuhand());
+  // model.addAttribute("result", janken.Result());
 
-  //   return "match.html";
+  // return "match.html";
   // }
 
   @GetMapping("/fight")
   public String fight(@RequestParam int id, @RequestParam String hand, Principal prin, ModelMap model) {
     String loginUser = prin.getName();
     User user1 = user.selectByName(loginUser);
+    matchinfo.insertMatchInfo(user1.getId(), id, hand, true);
     matchinfo.insertMatchInfo(user1.getId(), id, hand, true);
     model.addAttribute("user", loginUser);
     return "wait.html";
